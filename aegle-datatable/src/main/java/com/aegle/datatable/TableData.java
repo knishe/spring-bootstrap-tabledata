@@ -11,7 +11,7 @@ public class TableData<T> {
     private Collection<T> rows;
     private Long total;
 
-    public TableData(Collection<T> rows, Long total) {
+    TableData(Collection<T> rows, Long total) {
         this.rows = rows;
         this.total = total;
     }

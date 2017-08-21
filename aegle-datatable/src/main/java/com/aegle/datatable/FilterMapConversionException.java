@@ -8,6 +8,6 @@ import java.io.IOException;
  * @since 1.0
  */
 public class FilterMapConversionException extends RuntimeException {
-    public FilterMapConversionException(IOException e) {
+    FilterMapConversionException(IOException e) {
     }
 }
