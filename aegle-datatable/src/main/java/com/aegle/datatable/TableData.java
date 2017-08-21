@@ -1,3 +1,5 @@
+package com.aegle.datatable;
+
 import java.util.Collection;
 
 /**
