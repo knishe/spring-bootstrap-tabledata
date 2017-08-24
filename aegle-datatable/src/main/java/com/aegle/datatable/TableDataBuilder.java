@@ -16,21 +16,19 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  */
-class TableDataBuilder<T> {
+public class TableDataBuilder<T> {
     private SearchCriteria searchCriteria;
     private EntityManager entityManager;
     private FilterCriteriaBuilder<T> filterCriteria;
+    private List<Predicate> criteriaList = new ArrayList<>();
 
-    List<Predicate> criteriaList = new ArrayList<>();
-
-    TableDataBuilder(EntityManager entityManager, SearchCriteria searchCriteria) {
+    public TableDataBuilder(EntityManager entityManager, SearchCriteria searchCriteria) {
         this.searchCriteria = searchCriteria;
         this.entityManager = entityManager;
     }
 
-    TableData<T> getTableData(Class<T> entity) {
+    public TableData<T> getTableData(Class<T> entity) {
         return getTableData(entity, new FilterCriteriaBuilder(searchCriteria.getFilter()) {
-
             @Override
             List<Predicate> getFilterPredicate(Root fromOrder, CriteriaBuilder builder) {
                 return new ArrayList<>();
@@ -38,7 +36,7 @@ class TableDataBuilder<T> {
         });
     }
 
-    TableData<T> getTableData(Class<T> entity, FilterCriteriaBuilder filterCriteria) {
+    public TableData<T> getTableData(Class<T> entity, FilterCriteriaBuilder filterCriteria) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 
         CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(entity);
